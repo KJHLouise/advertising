@@ -17,12 +17,11 @@
 }
 .body-advertising .img-advertising {
   position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
-  top: 485px;
+  top: 1px;
   width: 702px;
-  height: 981px;
+  height: 640px;
 }
 .body-advertising .img-advertising img {
   width: 100%;
