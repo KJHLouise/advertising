@@ -1,4 +1,4 @@
-.body-advertising {
+/* .body-advertising {
   position: relative;
   height: auto;
   margin-left: 250px;
@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--background);
 }
 .body-advertising > img {
   position: relative;
@@ -27,4 +28,64 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+} */
+.body-advertising {
+  position: relative;
+  margin-left: 250px; /* 사이드바 너비만큼 왼쪽 여백 */
+  width: calc(100% - 250px); /* 나머지 너비 차지 */
+  padding-top: 65px; /* 고정 헤더 높이만큼 상단 패딩 */
+
+  /* 콘텐츠가 너무 가장자리에 붙지 않도록 좌우 패딩 추가 (선택 사항) */
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px; /* 하단 여백 */
+  box-sizing: border-box; /* 패딩과 테두리를 너비/높이에 포함 */
+
+  display: flex;
+  flex-direction: column; /* 자식 요소들을 수직으로 정렬 (필요시) */
+  justify-content: center; /* 주축(수직) 방향 중앙 정렬 (min-height와 함께 사용시 효과적) */
+  align-items: center; /* 교차축(수평) 방향 중앙 정렬 */
+  min-height: calc(
+    100vh - 65px
+  ); /* 최소 높이를 뷰포트 높이 - 헤더 높이로 설정 (콘텐츠가 적어도 화면 채우도록) */
+  overflow: hidden; /* 자식 요소가 넘칠 경우 숨김 (기존 스타일 유지) */
+}
+
+.body-advertising > img {
+  /* advertising.png (배경 또는 상세 이미지) */
+  display: block; /* 이미지의 일반적인 디스플레이 속성 */
+  max-width: 100%; /* 부모 컨테이너 너비를 넘지 않도록 함 */
+  height: auto; /* 가로세로 비율 유지 */
+  /* position: relative; /* z-index 필요시에만 */
+  /* margin: 0 auto; /* 부모가 flex이므로 자동 중앙 정렬됨 */
+}
+
+.body-advertising .img-advertising {
+  /* GIF들을 담는 컨테이너 */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* 수평 중앙 정렬 */
+
+  /* 
+    top: 1px; 
+    부모(.body-advertising)의 padding-top (65px) 이후의 콘텐츠 영역 기준으로 1px 아래에 위치.
+    즉, 헤더 바로 아래에 위치하게 됩니다.
+  */
+  top: 1px;
+
+  width: 702px; /* 원래 의도된 너비 */
+  max-width: 100%; /* 부모 너비의 100%를 넘지 않도록 제한 (가장 중요한 수정) */
+  /* 이렇게 하면 부모 너비가 702px보다 작을 때 자동으로 축소됨 */
+
+  height: auto; /* 너비 변경에 따라 높이 자동 조절 */
+  aspect-ratio: 702 / 640; /* 원본 GIF 컨테이너의 가로세로 비율 유지 */
+  z-index: 1; /* 다른 형제 요소(.body-advertising > img)보다 위에 오도록 */
+}
+
+.body-advertising .img-advertising img {
+  /* GIF 이미지 자체 */
+  display: block; /* 이미지 레이아웃 문제 방지 */
+  width: 100%; /* 부모(.img-advertising) 너비에 꽉 채움 */
+  height: 100%; /* 부모(.img-advertising) 높이에 꽉 채움 */
+  object-fit: contain; /* 이미지 비율을 유지하면서 컨테이너 안에 맞춤 */
 }

@@ -31,12 +31,8 @@
   justify-content: flex-start;
 }
 .sideBar__menu a {
-  color: var(--sidebar-default);
+  color: var(--sidebar-active);
   display: flex;
   align-items: center;
   gap: 10px;
-}
-.sideBar__link.active {
-  color: var(--sidebar-active);
-  font-weight: bold;
 }

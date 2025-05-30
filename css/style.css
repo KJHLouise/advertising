@@ -1,0 +1,170 @@
+@media (min-width: 769px) {
+}
+
+/* --- 1. 태블릿 세로 & 모바일 가로 (768px 이하) --- */
+
+@media (max-width: 768px) {
+  /* 기본 폰트 크기 조정 (선택 사항) */
+  html {
+    font-size: 9.5px;
+  }
+
+  /* 사이드바 숨기기 (JS로 토글 기능 필요) */
+  #sideBar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    width: 250px; /* 너비는 유지하거나 필요시 조정 */
+    background-color: var(--background); /* 배경색 추가 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    z-index: 10; /* 헤더보다 위에 오도록 */
+    /* 활성화 시: #sideBar.active { transform: translateX(0); } */
+  }
+
+  /* 헤더 및 콘텐츠 영역 전체 너비 사용 */
+  .header,
+  .body-wrap {
+    left: 0;
+    width: 100%;
+    margin-left: 0; /* body-wrap의 margin-left 제거 */
+  }
+
+  /* 헤더 조정 */
+  .header {
+    padding: 8px 15px; /* 좌우 패딩 조정 (기존 20px에서 약간 줄임) */
+    display: grid; /* ✅ Flex 대신 Grid 사용 */
+    grid-template-columns: auto 1fr auto; /* 로고 | 검색(남는공간) | 토글 */
+    gap: 10px; /* ✅ 컬럼 사이 간격 */
+    align-items: center; /* 수직 가운데 정렬 */
+    /* justify-content: space-between; 제거 */
+  }
+  /* 헤더 로고/토글 크기 미세 조정 */
+  .logo i {
+    font-size: 2.8rem;
+  }
+  .logo a {
+    font-size: 1.4rem;
+  }
+  .toggle-body i {
+    font-size: 2rem;
+  }
+  #toggle-wrap {
+    width: 38px;
+    height: 22px;
+  }
+  #toggle-wrap .toggle {
+    width: 18px;
+    height: 18px;
+  }
+  #toggle-wrap.on .toggle {
+    transform: translateX(16px);
+  }
+
+  /* 검색창 스타일 조정 */
+  #search {
+    /* margin-left: auto; 제거 (Grid 사용 시 불필요) */
+    grid-column: 2 / 3; /* ✅ Grid의 두 번째 컬럼에 배치 */
+    display: flex; /* 내부 input을 가운데 정렬하기 위해 */
+    justify-content: center; /* ✅ 내부 input 가운데 정렬 */
+  }
+  #search input {
+    /* 기존 width, focus 스타일 유지 */
+    width: 40px;
+    padding-left: 30px;
+    cursor: pointer;
+    transition: width 0.5s ease;
+  }
+  #search input:focus {
+    width: 180px; /* 포커스 시 너비 조정 (필요시 값 변경) */
+    cursor: text;
+  }
+  /* 로고와 토글은 자동으로 1, 3번 컬럼에 배치됨 */
+  .logo {
+    grid-column: 1 / 2;
+  }
+  .toggle-body {
+    grid-column: 3 / 4;
+    justify-self: end; /* 토글 그룹을 오른쪽 끝으로 */
+  }
+  .body-advertising {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 15px; /* 좌우 패딩 추가 */
+    padding-right: 15px;
+    padding-bottom: 15px; /* 하단 패딩 추가 */
+    /* overflow-y: hidden; /* 데스크탑에서 유지, 필요시 auto로 변경 */
+    /* display: flex; justify-content: center; align-items: center; /* 데스크탑에서 유지 */
+  }
+
+  .body-advertising > img {
+    /* 광고상세페이지 배경 이미지 */
+    max-width: 100%; /* 컨테이너 너비에 맞게 축소 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* img 태그에 flex 대신 block 사용 권장 */
+    /* margin: 0 auto; /* 부모가 flex이므로 자동 중앙 정렬됨 */
+  }
+
+  .body-advertising .img-advertising {
+    /* GIF들을 담는 컨테이너 */
+    /* position: absolute; top: 1px; /* 데스크탑 스타일 유지 */
+    left: 50%;
+    transform: translateX(-50%); /* 수평 중앙 정렬 */
+    width: 100%; /* 부모 너비의 90% 사용 */
+    max-width: 702px; /* 데스크탑 원본 너비 초과 방지 */
+    height: auto; /* 너비와 종횡비에 따라 높이 자동 결정 */
+    aspect-ratio: 702 / 640; /* 원본 종횡비 유지 (702px / 640px) */
+  }
+}
+
+/* --- 2. 모바일 세로 (480px 이하) --- */
+@media (max-width: 480px) {
+  /* html { font-size: 10px; } /* 폰트 크기 재조정 필요시 */
+  */
+  
+    /* 헤더 패딩 등 미세 조정 */
+    .header {
+    gap: 5px; /* 더 작은 화면에서 간격 줄이기 */
+    padding: 8px 10px;
+  }
+  .logo i {
+    font-size: 2.6rem;
+  }
+  .logo a {
+    font-size: 1.3rem; /* 또는 display: none; */
+  }
+
+  /* 검색창 더 작게 또는 숨기기 */
+  #search input {
+    max-width: 100px; /* 포커스 시 최대 너비 */
+    padding-left: 28px; /* 아이콘 공간 */
+    font-size: 1.1rem; /* 내부 폰트 */
+  }
+  #search input:focus {
+    width: 120px; /* 더 작은 화면에서 포커스 너비 제한 */
+  }
+
+  /* 토글 아이콘/버튼 크기 */
+  .toggle-body i {
+    font-size: 1.8rem;
+  }
+  #toggle-wrap {
+    width: 34px;
+    height: 20px;
+  }
+  #toggle-wrap .toggle {
+    width: 16px;
+    height: 16px;
+  }
+  #toggle-wrap.on .toggle {
+    transform: translateX(14px);
+  }
+  .body-advertising {
+    padding-left: 10px; /* 더 작은 화면에서 패딩 약간 줄임 */
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  .body-advertising .img-advertising {
+    width: 95%; /* 더 작은 화면에서 너비 비율 약간 늘림 */
+    /* max-width, aspect-ratio, positioning 등은 768px 규칙에서 상속 */
+  }
+}
