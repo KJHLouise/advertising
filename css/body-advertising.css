@@ -89,3 +89,30 @@
   height: 100%; /* 부모(.img-advertising) 높이에 꽉 채움 */
   object-fit: contain; /* 이미지 비율을 유지하면서 컨테이너 안에 맞춤 */
 }
+.body-advertising .img-advertising video {
+  /* GIF 이미지 자체 */
+  display: block; /* 이미지 레이아웃 문제 방지 */
+  width: 100%; /* 부모(.img-advertising) 너비에 꽉 채움 */
+  height: 90%; /* 부모(.img-advertising) 높이에 꽉 채움 */
+  object-fit: contain; /* 이미지 비율을 유지하면서 컨테이너 안에 맞춤 */
+}
+.body-advertising .img-advertising .four {
+}
+.body-advertising .img-advertising .four .four-first {
+}
+.body-advertising .img-advertising .four .four-first img {
+}
+.body-advertising .img-advertising .four .four-second {
+}
+.body-advertising .img-advertising .four .four-second img {
+}
+.body-advertising .img-advertising .best {
+}
+.body-advertising .img-advertising .best img {
+}
+.body-advertising .img-advertising .object {
+  position: absolute;
+  top: 10050px;
+}
+.body-advertising .img-advertising .object img {
+}
